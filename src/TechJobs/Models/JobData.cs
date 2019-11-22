@@ -49,7 +49,12 @@ namespace TechJobs.Models
         public static List<Dictionary<string, string>> FindByValue(string value)
         {
             // load data, if not already loaded
+            
             LoadData();
+            if (string.IsNullOrEmpty(value))
+            {
+                return FindAll();
+            }
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
